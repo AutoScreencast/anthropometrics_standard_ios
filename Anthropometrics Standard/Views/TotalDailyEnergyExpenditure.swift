@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct TotalDailyEnergyExpenditure: View {
+
     var mifflinStJeor: Double
     var revisedHarrisBenedict: Double
     var katchMcArdle: Double
@@ -22,15 +23,15 @@ struct TotalDailyEnergyExpenditure: View {
 
         switch activityLevel {
         case .sedentary:
-            multiple = 1.2
+            multiple = (1 + K.Activity.Sedentary)
         case .lightlyActive:
-            multiple = 1.375
+            multiple = (1 + K.Activity.LightlyActive)
         case .moderatelyActive:
-            multiple = 1.55
+            multiple = (1 + K.Activity.ModeratelyActive)
         case .veryActive:
-            multiple = 1.725
+            multiple = (1 + K.Activity.VeryActive)
         case .extremelyActive:
-            multiple = 1.9
+            multiple = (1 + K.Activity.ExtremelyActive)
         }
 
         return multiple
@@ -41,40 +42,40 @@ struct TotalDailyEnergyExpenditure: View {
             Form {
                 Section(
                     header: HStack {
-                        Text("Total Daily Energy Expenditure (TDEE)".uppercased())
+                        Text(K.Tabs.Total.SectionHeader.uppercased())
                         Spacer()
-                        Text("kcal/day")
+                        Text(K.Info.CaloriesPerDayUnit)
                     }
                 ) {
                     HStack {
-                        Text("Mifflin-St. Jeor")
+                        Text(K.Formula.MifflinStJeor)
                         Spacer()
                         Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * mifflinStJeor))
                     }
 
                     HStack {
-                        Text("Revised Harris-Benedict")
+                        Text(K.Formula.RevisedHarrisBenedict)
                         Spacer()
                         Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * revisedHarrisBenedict))
                     }
 
-                    if fat != 0 {
+                    if fat != K.Profile.FatDefault {
                         HStack {
-                            Text("Katch-McArdle")
+                            Text(K.Formula.KatchMcArdle)
                             Spacer()
                             Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * katchMcArdle))
                         }
                     }
 
-                    if fat != 0 {
+                    if fat != K.Profile.FatDefault {
                         HStack {
-                            Text("Cunningham")
+                            Text(K.Formula.Cunningham)
                             Spacer()
                             Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * cunningham))
                         }
                     }
                 }
-                .navigationBarTitle(Text("Total"))
+                .navigationBarTitle(Text(K.Tabs.Total.Title))
             }
         }
     }

@@ -8,7 +8,9 @@
 
 import SwiftUI
 
+
 struct PersonalProfile: View {
+
     @Binding var weight: Int
     @Binding var height: Int
     @Binding var birthDate: Date
@@ -16,15 +18,15 @@ struct PersonalProfile: View {
 
     var dateRange: ClosedRange<Date> {
         let now = Date()
-        let min = Calendar.current.date(byAdding: .year, value: -maximumAge, to: now)!
+        let min = Calendar.current.date(byAdding: .year, value: -K.Profile.MaximumAge, to: now)!
         return min...now
     }
 
     var body: some View {
-        Section(header: Text("Your Profile".uppercased())) {
+        Section(header: Text(K.Tabs.Profile.SectionHeader.uppercased())) {
             Picker(
                 selection: $gender,
-                label: Text("Gender"),
+                label: Text(K.InputField.GenderLabel),
                 content: {
                     ForEach(Gender.allCases) { gender in
                         Text(gender.name).tag(gender)
@@ -36,12 +38,12 @@ struct PersonalProfile: View {
                 selection: $birthDate,
                 in: dateRange,
                 displayedComponents: .date,
-                label: { Text("Date of Birth") }
+                label: { Text(K.InputField.BirthDateLabel) }
             )
 
             Picker(
                 selection: $height,
-                label: Text("Height (cm)"),
+                label: Text(K.InputField.HeightLabel),
                 content: {
                     ForEach(100...260, id: \.self) {
                         Text("\($0)").tag($0)
@@ -51,7 +53,7 @@ struct PersonalProfile: View {
 
             Picker(
                 selection: $weight,
-                label: Text("Weight (kg)"),
+                label: Text(K.InputField.WeightLabel),
                 content: {
                     ForEach(30...220, id: \.self) {
                         Text("\($0)").tag($0)

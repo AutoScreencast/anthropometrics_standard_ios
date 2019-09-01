@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct RestingEnergyExpenditure: View {
+    
     var mifflinStJeor: Double
     var revisedHarrisBenedict: Double
     var katchMcArdle: Double
@@ -21,40 +22,40 @@ struct RestingEnergyExpenditure: View {
             Form {
                 Section(
                     header: HStack {
-                        Text("Resting Energy Expenditure".uppercased())
+                        Text(K.Tabs.Resting.SectionHeader.uppercased())
                         Spacer()
-                        Text("kcal/day")
+                        Text(K.Info.CaloriesPerDayUnit)
                     }
                 ) {
                     HStack {
-                        Text("Mifflin-St. Jeor")
+                        Text(K.Formula.MifflinStJeor)
                         Spacer()
                         Text(formatDoubleAsString(value: mifflinStJeor))
                     }
 
                     HStack {
-                        Text("Revised Harris-Benedict")
+                        Text(K.Formula.RevisedHarrisBenedict)
                         Spacer()
                         Text(formatDoubleAsString(value: revisedHarrisBenedict))
                     }
 
-                    if fat != 0 {
+                    if fat != K.Profile.FatDefault {
                         HStack {
-                            Text("Katch-McArdle")
+                            Text(K.Formula.KatchMcArdle)
                             Spacer()
                             Text(formatDoubleAsString(value: katchMcArdle))
                         }
                     }
 
-                    if fat != 0 {
+                    if fat != K.Profile.FatDefault {
                         HStack {
-                            Text("Cunningham")
+                            Text(K.Formula.Cunningham)
                             Spacer()
                             Text(formatDoubleAsString(value: cunningham))
                         }
                     }
                 }
-                .navigationBarTitle(Text("Resting"))
+                .navigationBarTitle(Text(K.Tabs.Resting.Title))
             }
         }
     }

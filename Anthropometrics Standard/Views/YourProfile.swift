@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct YourProfile: View {
+    
     @Binding var gender: Gender
     @Binding var birthDate: Date
     @Binding var height: Int
@@ -26,10 +27,10 @@ struct YourProfile: View {
                     gender: $gender
                 )
 
-                Section(header: Text("Optional Data".uppercased())) {
+                Section(header: Text(K.Section.BodyFat.SectionHeader.uppercased())) {
                     Picker(
                         selection: $fat,
-                        label: Text("Body fat (%)"),
+                        label: Text(K.Section.BodyFat.Label),
                         content: {
                             ForEach(0...100, id: \.self) {
                                 Text("\($0)").tag($0)
@@ -38,10 +39,10 @@ struct YourProfile: View {
                     )
                 }
 
-                Section(header: Text("Activity Level".uppercased())) {
+                Section(header: Text(K.Section.ActivityLevel.SectionHeader.uppercased())) {
                     Picker(
                         selection: $activityLevel,
-                        label: Text("Activity Factor"),
+                        label: Text(K.Section.ActivityLevel.Label),
                         content: {
                             ForEach(ActivityLevel.allCases) { al in
                                 Text(al.name).tag(al)
@@ -51,7 +52,7 @@ struct YourProfile: View {
                 }
 
             }
-            .navigationBarTitle(Text("Profile"))
+            .navigationBarTitle(Text(K.Tabs.Profile.Title))
         }
     }
 }

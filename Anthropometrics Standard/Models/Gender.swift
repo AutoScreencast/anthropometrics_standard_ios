@@ -10,7 +10,13 @@ import Foundation
 
 
 enum Gender: CaseIterable, Identifiable {
+
     case male, female
+
     var id: Gender { self }
-    var name: String { return "\(self)".capitalized }
+
+    var name: String {
+        return "\(self)".capitalized
+    }
+
 }

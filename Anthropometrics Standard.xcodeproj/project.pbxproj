@@ -16,6 +16,8 @@
 		434985AF231ABA5800805FF5 /* RestingEnergyExpenditure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434985AE231ABA5800805FF5 /* RestingEnergyExpenditure.swift */; };
 		434985B2231AC3C500805FF5 /* ActiveEnergyExpenditure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434985B1231AC3C500805FF5 /* ActiveEnergyExpenditure.swift */; };
 		434985B4231AC95200805FF5 /* TotalDailyEnergyExpenditure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434985B3231AC95200805FF5 /* TotalDailyEnergyExpenditure.swift */; };
+		434985B6231BA4AD00805FF5 /* TabContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434985B5231BA4AD00805FF5 /* TabContainer.swift */; };
+		434985B8231BA5AC00805FF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434985B7231BA5AC00805FF5 /* Constants.swift */; };
 		43E91769231A446900832AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E91768231A446900832AE1 /* AppDelegate.swift */; };
 		43E9176B231A446900832AE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E9176A231A446900832AE1 /* SceneDelegate.swift */; };
 		43E9176D231A446900832AE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E9176C231A446900832AE1 /* ContentView.swift */; };
@@ -34,6 +36,8 @@
 		434985AE231ABA5800805FF5 /* RestingEnergyExpenditure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestingEnergyExpenditure.swift; sourceTree = "<group>"; };
 		434985B1231AC3C500805FF5 /* ActiveEnergyExpenditure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveEnergyExpenditure.swift; sourceTree = "<group>"; };
 		434985B3231AC95200805FF5 /* TotalDailyEnergyExpenditure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDailyEnergyExpenditure.swift; sourceTree = "<group>"; };
+		434985B5231BA4AD00805FF5 /* TabContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainer.swift; sourceTree = "<group>"; };
+		434985B7231BA5AC00805FF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		43E91765231A446900832AE1 /* Anthropometrics Standard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anthropometrics Standard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E91768231A446900832AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E9176A231A446900832AE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			children = (
 				434985A1231AB75100805FF5 /* Formatters.swift */,
 				4349859F231AB72300805FF5 /* Formulas.swift */,
+				434985B7231BA5AC00805FF5 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -73,6 +78,7 @@
 				434985AE231ABA5800805FF5 /* RestingEnergyExpenditure.swift */,
 				434985B3231AC95200805FF5 /* TotalDailyEnergyExpenditure.swift */,
 				434985A5231AB8E800805FF5 /* YourProfile.swift */,
+				434985B5231BA4AD00805FF5 /* TabContainer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,7 +220,9 @@
 				434985B4231AC95200805FF5 /* TotalDailyEnergyExpenditure.swift in Sources */,
 				434985A0231AB72300805FF5 /* Formulas.swift in Sources */,
 				434985A2231AB75100805FF5 /* Formatters.swift in Sources */,
+				434985B6231BA4AD00805FF5 /* TabContainer.swift in Sources */,
 				434985B2231AC3C500805FF5 /* ActiveEnergyExpenditure.swift in Sources */,
+				434985B8231BA5AC00805FF5 /* Constants.swift in Sources */,
 				43E9176D231A446900832AE1 /* ContentView.swift in Sources */,
 				434985A9231AB92D00805FF5 /* Gender.swift in Sources */,
 			);

@@ -10,10 +10,14 @@ import Foundation
 
 
 enum ActivityLevel: CaseIterable, Identifiable {
+
     case sedentary, lightlyActive, moderatelyActive, veryActive, extremelyActive
+
     var id: ActivityLevel { self }
+
     var name: String {
         return "\(self)".map { $0.isUppercase ? " \($0)" : "\($0)" }
             .joined().capitalized
     }
+
 }
