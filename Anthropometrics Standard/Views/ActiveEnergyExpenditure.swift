@@ -37,39 +37,44 @@ struct ActiveEnergyExpenditure: View {
     }
 
     var body: some View {
-        Section(
-            header: HStack {
-                Text("Active Energy Expenditure".uppercased())
-                Spacer()
-                Text("kcal/day")
-            }
-        ) {
-            HStack {
-                Text("Mifflin-St. Jeor")
-                Spacer()
-                Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * mifflinStJeor))
-            }
+        NavigationView {
+            Form {
+                Section(
+                    header: HStack {
+                        Text("Active Energy Expenditure".uppercased())
+                        Spacer()
+                        Text("kcal/day")
+                    }
+                ) {
+                    HStack {
+                        Text("Mifflin-St. Jeor")
+                        Spacer()
+                        Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * mifflinStJeor))
+                    }
 
-            HStack {
-                Text("Revised Harris-Benedict")
-                Spacer()
-                Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * revisedHarrisBenedict))
-            }
+                    HStack {
+                        Text("Revised Harris-Benedict")
+                        Spacer()
+                        Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * revisedHarrisBenedict))
+                    }
 
-            if fat != 0 {
-                HStack {
-                    Text("Katch-McArdle")
-                    Spacer()
-                    Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * katchMcArdle))
+                    if fat != 0 {
+                        HStack {
+                            Text("Katch-McArdle")
+                            Spacer()
+                            Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * katchMcArdle))
+                        }
+                    }
+
+                    if fat != 0 {
+                        HStack {
+                            Text("Cunningham")
+                            Spacer()
+                            Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * cunningham))
+                        }
+                    }
                 }
-            }
-
-            if fat != 0 {
-                HStack {
-                    Text("Cunningham")
-                    Spacer()
-                    Text(formatDoubleAsString(value: activityMultiplier(activityLevel: activityLevel) * cunningham))
-                }
+                .navigationBarTitle(Text("Active"))
             }
         }
     }

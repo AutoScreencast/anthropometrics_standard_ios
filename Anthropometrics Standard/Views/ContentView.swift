@@ -47,28 +47,88 @@ let maximumAge = 150
 //    }
 //}
 
-//struct TabContainer: View {
-//    var body: some View {
-//        TabView {
-//            YourProfile()
-//                .tabItem {
-//                    Image(systemName: "1.square.fill")
-//                    Text("Your Profile")
-//                }
-//
-//            RestingEnergy()
-//                .tabItem {
-//                    Image(systemName: "2.square.fill")
-//                    Text("Resting Energy")
-//                }
-//        }.font(.headline)
-//    }
-//}
+struct TabContainer: View {
+    @Binding var gender: Gender
+    @Binding var birthDate: Date
+    @Binding var height: Int
+    @Binding var weight: Int
+    @Binding var fat: Int
+    @Binding var activityLevel: ActivityLevel
+
+    var body: some View {
+        TabView {
+            YourProfile(
+                gender: $gender,
+                birthDate: $birthDate,
+                height: $height,
+                weight: $weight,
+                fat: $fat,
+                activityLevel: $activityLevel
+            )
+                .tabItem {
+                    Image(systemName: "person.circle")
+                    Text("Profile")
+                }
+
+            RestingEnergyExpenditure(
+                mifflinStJeor: mifflinStJeor(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
+                revisedHarrisBenedict: revisedHarrisBenedict(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
+                katchMcArdle: katchMcArdle(fat: fat, weight: weight),
+                cunningham: cunningham(fat: fat, weight: weight),
+                fat: fat
+            )
+                .tabItem {
+                    Image(systemName: "bed.double")
+                    Text("Resting")
+                }
+
+            ActiveEnergyExpenditure(
+                mifflinStJeor: mifflinStJeor(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
+                revisedHarrisBenedict: revisedHarrisBenedict(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
+                katchMcArdle: katchMcArdle(fat: fat, weight: weight),
+                cunningham: cunningham(fat: fat, weight: weight),
+                fat: fat,
+                activityLevel: activityLevel
+            )
+                .tabItem {
+                    Image(systemName: "hare")
+                    Text("Active")
+                }
+
+            TotalDailyEnergyExpenditure(
+                mifflinStJeor: mifflinStJeor(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
+                revisedHarrisBenedict: revisedHarrisBenedict(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
+                katchMcArdle: katchMcArdle(fat: fat, weight: weight),
+                cunningham: cunningham(fat: fat, weight: weight),
+                fat: fat,
+                activityLevel: activityLevel
+            )
+                .tabItem {
+                    Image(systemName: "sum")
+                    Text("Total")
+                }
+
+        }.font(.headline)
+    }
+}
 
 struct ContentView: View {
+    @State private var gender = Gender.male
+    @State private var birthDate = Date()
+    @State private var height = 160
+    @State private var weight = 70
+    @State private var fat = 0
+    @State private var activityLevel = ActivityLevel.sedentary
+
     var body: some View {
-//        TabContainer()
-        YourProfile()
+        TabContainer(
+            gender: $gender,
+            birthDate: $birthDate,
+            height: $height,
+            weight: $weight,
+            fat: $fat,
+            activityLevel: $activityLevel
+        )
     }
 }
 

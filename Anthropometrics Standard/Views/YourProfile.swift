@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct YourProfile: View {
-    @State private var gender = Gender.male
-    @State private var birthDate = Date()
-    @State private var height = 160
-    @State private var weight = 70
-    @State private var fat = 0
-    @State private var activityLevel = ActivityLevel.sedentary
+    @Binding var gender: Gender
+    @Binding var birthDate: Date
+    @Binding var height: Int
+    @Binding var weight: Int
+    @Binding var fat: Int
+    @Binding var activityLevel: ActivityLevel
 
     var body: some View {
         NavigationView {
@@ -50,34 +50,8 @@ struct YourProfile: View {
                     )
                 }
 
-                RestingEnergyExpenditure(
-                    mifflinStJeor: mifflinStJeor(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
-                    revisedHarrisBenedict: revisedHarrisBenedict(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
-                    katchMcArdle: katchMcArdle(fat: fat, weight: weight),
-                    cunningham: cunningham(fat: fat, weight: weight),
-                    fat: fat
-                )
-
-                ActiveEnergyExpenditure(
-                    mifflinStJeor: mifflinStJeor(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
-                    revisedHarrisBenedict: revisedHarrisBenedict(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
-                    katchMcArdle: katchMcArdle(fat: fat, weight: weight),
-                    cunningham: cunningham(fat: fat, weight: weight),
-                    fat: fat,
-                    activityLevel: activityLevel
-                )
-
-                TotalDailyEnergyExpenditure(
-                    mifflinStJeor: mifflinStJeor(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
-                    revisedHarrisBenedict: revisedHarrisBenedict(weight: weight, height: height, age: getAge(birthDate: birthDate), gender: gender),
-                    katchMcArdle: katchMcArdle(fat: fat, weight: weight),
-                    cunningham: cunningham(fat: fat, weight: weight),
-                    fat: fat,
-                    activityLevel: activityLevel
-                )
-
             }
-            .navigationBarTitle(Text("Anthropometrics"))
+            .navigationBarTitle(Text("Profile"))
         }
     }
 }
